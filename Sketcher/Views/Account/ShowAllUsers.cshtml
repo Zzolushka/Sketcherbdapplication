@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Sketcher.Models.User>
+
+@{
+    ViewBag.Title = "ShowAllUsers";
+}
+
+<br />
+<h2 class="text-center">Список всех пользователей</h2>
+
+<div class="card-columns">
+    @foreach (var item in Model) {
+        <div class="card">
+            <img class="card-img-top" src="@item.UserPhotoPath" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">@item.UserLogin</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+        </div>
+    }
+</div>
