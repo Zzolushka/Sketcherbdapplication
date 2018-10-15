@@ -169,6 +169,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SketchController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -260,10 +261,12 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Account\ShowAllUsers.cshtml" />
     <Content Include="Views\Account\ShowUserInformation.cshtml" />
+    <Content Include="Views\Account\Authorisation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Images\" />
+    <Folder Include="Views\Sketch\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

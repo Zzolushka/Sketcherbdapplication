@@ -10,7 +10,7 @@ namespace Sketcher.Controllers
     {
         public ActionResult Index()
         {
-            return View(1);
+            return View();
         }
 
         public ActionResult About()

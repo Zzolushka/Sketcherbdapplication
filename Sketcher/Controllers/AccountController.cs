@@ -24,7 +24,38 @@ namespace Sketcher.Controllers
             db.Users.Add(user);
             db.SaveChanges();
             FormsAuthentication.SetAuthCookie(collection["UserLogin"], true);
-            return RedirectToAction("index","home");
+            return RedirectToAction("Index","home");
+        }
+
+        [HttpGet]
+        public ActionResult Authorisation()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Authorisation(FormCollection collection)
+        {
+            var user = db.Users.ToList().SingleOrDefault(u=>u.UserLogin == collection["UserLogin"]);
+            if(user != null)
+            {
+                if (user.UserPassword == collection["UserPassword"])
+                {
+                    FormsAuthentication.SetAuthCookie(collection["UserLogin"], true);
+                    return RedirectToAction("showuserifromation");
+                }
+                else
+                {
+                    ModelState.AddModelError("UserPassword", "Нет такого пароля");
+                    return View();
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("UserLogin","Нету такого пользователя");
+                return View();
+            }
+
         }
 
         [Authorize]
@@ -38,5 +69,7 @@ namespace Sketcher.Controllers
         {
             return View(db.Users);
         }
+
+
     }
 }
